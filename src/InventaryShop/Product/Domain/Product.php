@@ -1,11 +1,11 @@
 <?php
 
-namespace src\InventaryShop\Product\Domain;
+namespace Src\InventaryShop\Product\Domain;
 
-use src\InventaryShop\Product\Domain\ValueObjects\ProductDescription;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductName;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductPrice;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductStock;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductDescription;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductName;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductPrice;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductStock;
 
 final class Product
 {
@@ -14,34 +14,30 @@ final class Product
     private $price;
     private $stock;
 
-    public function __construct(
-        ProductName $name,
-        ProductDescription $description,
-        ProductPrice $price,
-        ProductStock $stock,
-    ) {
-        $this->name = $name;
-        $this->description = $description;
-        $this->price = $price;
-        $this->stock = $stock;
+    public function __construct(ProductName $name, ProductDescription $description, ProductPrice $price, ProductStock $stock)
+    {
+        $this->name = $name->value();
+        $this->description = $description->value();
+        $this->price = $price->value();
+        $this->stock = $stock->value();
     }
 
-    public function name(): ProductName
+    public function name()
     {
         return $this->name;
     }
 
-    public function description(): ProductDescription
+    public function description()
     {
         return $this->description;
     }
 
-    public function price(): ProductPrice
+    public function price()
     {
         return $this->price;
     }
 
-    public function stock(): ProductStock
+    public function stock()
     {
         return $this->stock;
     }
