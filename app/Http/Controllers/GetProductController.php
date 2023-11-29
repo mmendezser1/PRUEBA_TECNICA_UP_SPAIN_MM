@@ -10,7 +10,7 @@ class GetProductController extends Controller
 
     private $getProductController;
 
-    public function __construct(\src\InventaryShop\Product\Infrastructure\GetProductController $getProductController)
+    public function __construct(\Src\InventaryShop\Product\Infrastructure\GetProductController $getProductController)
     {
         $this->getProductController = $getProductController;
     }
@@ -23,8 +23,14 @@ class GetProductController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $user = new ProductResource($this->getProductController->__invoke($request));
 
-        return response($user, 200);
+        $product = new ProductResource($this->getProductController->__invoke($request));
+        if (!isset($product->resource)) {
+            return response([
+                'response' => 'Product not found',
+            ], 200);
+        }
+
+        return response($product, 200);
     }
 }
