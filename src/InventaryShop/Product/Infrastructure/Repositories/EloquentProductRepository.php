@@ -1,17 +1,15 @@
 <?php
 
-declare (strict_types = 1);
-
-namespace Src\BoundedContext\User\Infrastructure\Repositories;
+namespace Src\InventaryShop\Product\Infrastructure\Repositories;
 
 use App\Product as EloquentProductModel;
-use src\InventaryShop\Product\Domain\Contracts\ProductRepositoryContract;
-use src\InventaryShop\Product\Domain\Product;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductDescription;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductId;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductName;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductPrice;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductStock;
+use Src\InventaryShop\Product\Domain\Contracts\ProductRepositoryContract;
+use Src\InventaryShop\Product\Domain\Product;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductDescription;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductId;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductName;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductPrice;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductStock;
 
 final class EloquentProductRepository implements ProductRepositoryContract
 {
@@ -24,14 +22,14 @@ final class EloquentProductRepository implements ProductRepositoryContract
 
     public function find(ProductId $id)
     {
-        $product = $this->eloquentProductModel->findOrFail($id->value());
 
-        return new Product(
-            new ProductName($product->name),
-            new ProductDescription($product->description),
-            new ProductPrice($product->price),
-            new ProductStock($product->stock),
-        );
+        $product = $this->eloquentProductModel->find($id->value());
+        if (!isset($product)) {
+            return null;
+        }
+
+        return new Product(new ProductName($product->name), new ProductDescription($product->description), new ProductPrice($product->price), new ProductStock($product->stock));
+
     }
     public function save(Product $product)
     {
