@@ -10,4 +10,6 @@ interface ProductRepositoryContract
     public function find(ProductId $id);
 
     public function save(Product $product);
+
+    public function all();
 }
