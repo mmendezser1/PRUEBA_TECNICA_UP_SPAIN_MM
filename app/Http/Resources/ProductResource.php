@@ -17,10 +17,10 @@ class ProductResource extends JsonResource
         // Map Domain User model values
         return [
             'data' => [
-                'name' => $this->name()->value(),
-                'description' => $this->description()->value(),
-                'price' => $this->price()->value(),
-                'stock' => $this->stock()->value(),
+                'name' => $this->name(),
+                'description' => $this->description(),
+                'price' => $this->price(),
+                'stock' => $this->stock(),
 
             ],
         ];
