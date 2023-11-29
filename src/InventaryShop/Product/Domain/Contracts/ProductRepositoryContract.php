@@ -1,9 +1,9 @@
 <?php
 
-namespace src\InventaryShop\Product\Domain\Contracts;
+namespace Src\InventaryShop\Product\Domain\Contracts;
 
-use src\InventaryShop\Product\Domain\Product;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductId;
+use Src\InventaryShop\Product\Domain\Product;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductId;
 
 interface ProductRepositoryContract
 {

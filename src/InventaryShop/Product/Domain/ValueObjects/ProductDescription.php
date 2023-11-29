@@ -1,6 +1,6 @@
 <?php
 
-namespace src\InventaryShop\Product\Domain\ValueObjects;
+namespace Src\InventaryShop\Product\Domain\ValueObjects;
 
 final class ProductDescription
 {

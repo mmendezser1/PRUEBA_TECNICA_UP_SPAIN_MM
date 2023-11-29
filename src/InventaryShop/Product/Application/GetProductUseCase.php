@@ -1,9 +1,9 @@
 <?php
 
-namespace src\InventaryShop\Product\Application;
+namespace Src\InventaryShop\Product\Application;
 
-use src\InventaryShop\Product\Domain\Contracts\ProductRepositoryContract;
-use src\InventaryShop\Product\Domain\ValueObjects\ProductId;
+use Src\InventaryShop\Product\Domain\Contracts\ProductRepositoryContract;
+use Src\InventaryShop\Product\Domain\ValueObjects\ProductId;
 
 final class GetProductUseCase
 {
