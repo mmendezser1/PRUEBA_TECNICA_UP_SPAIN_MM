@@ -14,4 +14,9 @@ class Product extends Model
         'name', 'description', 'price', 'stock',
     ];
 
+    protected $casts = [
+        'price' => 'float',
+        'stock' => 'integer',
+    ];
+
 }

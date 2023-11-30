@@ -19,7 +19,7 @@ final class CreateProductUseCase
         $this->repository = $repository;
     }
 
-    public function __invoke(string $productName, string $productDescription, string $productPrice, string $productStock)
+    public function __invoke(string $productName, string $productDescription, float $productPrice, int $productStock)
     {
         $name = new ProductName($productName);
         $description = new ProductDescription($productDescription);

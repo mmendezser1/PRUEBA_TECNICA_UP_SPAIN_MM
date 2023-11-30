@@ -14,19 +14,12 @@ final class ProductId
         $this->value = $id;
     }
 
-    private function validate(int $id)
+    private function validate($stock)
     {
-        $options = array(
-            'options' => array(
-                'min_range' => 1,
-            ),
-        );
-
-        if (!filter_var($id, FILTER_VALIDATE_INT, $options)) {
-            throw new InvalidArgumentException(
-                sprintf('<%s> does not allow the value <%s>.', static::class, $id)
-            );
+        if ($stock < 1) {
+            throw new InvalidArgumentException("The id must be  greater than 1.");
         }
+
     }
 
     public function value()
