@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('product/{id}', 'GetProductController');
+Route::post('create/product', 'CreateProductController');
