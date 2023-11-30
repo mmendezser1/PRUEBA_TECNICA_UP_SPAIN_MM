@@ -37,10 +37,10 @@ final class EloquentProductRepository implements ProductRepositoryContract
         $newProduct = $this->eloquentProductModel;
 
         $data = [
-            'name' => $newProduct->name()->value(),
-            'description' => $newProduct->description()->value(),
-            'price' => $newProduct->price()->value(),
-            'stock' => $newProduct->stock()->value(),
+            'name' => $product->name(),
+            'description' => $product->description(),
+            'price' => $product->price(),
+            'stock' => $product->stock(),
         ];
 
         $newProduct->create($data);
