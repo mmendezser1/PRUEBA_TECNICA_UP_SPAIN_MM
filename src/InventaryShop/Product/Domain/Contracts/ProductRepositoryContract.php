@@ -11,5 +11,5 @@ interface ProductRepositoryContract
 
     public function save(Product $product);
 
-    public function all();
+
 }

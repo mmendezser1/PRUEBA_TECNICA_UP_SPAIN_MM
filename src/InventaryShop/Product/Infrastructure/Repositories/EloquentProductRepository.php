@@ -47,9 +47,4 @@ final class EloquentProductRepository implements ProductRepositoryContract
 
     }
 
-    public function all()
-    {
-
-    }
-
 }
