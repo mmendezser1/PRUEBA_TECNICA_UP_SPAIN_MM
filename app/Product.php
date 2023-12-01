@@ -19,4 +19,9 @@ class Product extends Model
         'stock' => 'integer',
     ];
 
+    public function variations()
+    {
+        return $this->hasMany(Variation::class, 'product_id');
+    }
+
 }
